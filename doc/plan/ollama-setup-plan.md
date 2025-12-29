@@ -1,96 +1,70 @@
-# Ollama試用環境 計画書
+# Ollama モデル比較環境 計画書
 
 **作成日**: 2025-12-29
+**更新日**: 2025-12-29
 
 ---
 
 ## 機能概要・目的
 
-Docker Composeを使用してOllamaの動作環境を構築し、ローカルLLMの動作確認を行う。
+Homebrewを使用してOllamaをインストールし、複数のローカルLLMモデルを比較検証する。
 
 ---
 
 ## 実装内容
 
-`./ollama` ディレクトリに以下を作成：
+### 1. Makefile
 
-### 1. docker-compose.yml
+便利コマンドをMakefileで提供：
 
-Ollamaコンテナの定義：
-- **イメージ**: `ollama/ollama:latest`
-- **ポート**: 11434:11434
-- **ボリューム**: モデルデータ永続化（名前付きボリューム）
-- **環境変数**:
-  - `OLLAMA_NUM_PARALLEL=4` - 並列実行数
-  - `OLLAMA_MAX_LOADED_MODELS=3` - 最大ロードモデル数
+**セットアップ:**
+- `make install` - Ollamaをインストール (Homebrew)
+- `make serve` - Ollamaサーバーを起動
+
+**モデル操作:**
+- `make pull MODEL=<model>` - モデルダウンロード
+- `make run MODEL=<model>` - モデル実行（対話モード）
+- `make list` - ダウンロード済みモデル一覧
+- `make rm MODEL=<model>` - モデル削除
+
+**比較用:**
+- `make pull-all` - 比較対象モデルを一括ダウンロード
 
 ### 2. README.md
 
-使い方ドキュメント：
-- 起動・停止方法
-- モデルのダウンロード・実行方法
-- 主要コマンド一覧
-- API利用例
-
-### 3. Makefile（プロジェクトルートに配置）
-
-便利コマンドをMakefileで提供（`ollama-` プレフィックスで他サービスと区別）：
-- `make ollama-up` - コンテナ起動
-- `make ollama-down` - コンテナ停止
-- `make ollama-logs` - ログ表示
-- `make ollama-pull MODEL=<model>` - モデルダウンロード
-- `make ollama-run MODEL=<model>` - モデル実行（対話モード）
-- `make ollama-list` - ダウンロード済みモデル一覧
-
-※ Makefileはプロジェクトルートに配置し、将来追加するサービス（LM Studioなど）のコマンドも同じファイルで管理
+プロジェクトの使い方ドキュメント
 
 ---
 
-## 推奨初期モデル
+## 比較対象モデル
 
-分析レポートより、以下を最初に試すことを推奨：
-
-| モデル | 予想速度 | メモリ使用量 | 用途 |
-|--------|----------|--------------|------|
-| `gemma2:7b` | 22-28 t/s | 6-8GB | 軽量・高速、最初のテストに最適 |
-| `qwen2.5:8b` | 15-20 t/s | 8-10GB | 日本語対応、汎用 |
-
----
-
-## タスク分解
-
-1. [ ] `./ollama` ディレクトリ作成
-2. [ ] `./ollama/docker-compose.yml` 作成
-3. [ ] `./Makefile` 作成（プロジェクトルート）
-4. [ ] `./ollama/README.md` 作成
-5. [ ] 動作確認
-   - コンテナ起動（`make ollama-up`）
-   - モデルダウンロード（`make ollama-pull MODEL=gemma2:7b`）
-   - 実行テスト（`make ollama-run MODEL=gemma2:7b`）
+| モデル | 予想速度 | メモリ | 特徴 |
+|--------|----------|--------|------|
+| gemma2:7b | 22-28 t/s | 6-8GB | 軽量・高速 |
+| qwen2.5:8b | 15-20 t/s | 8-10GB | 日本語対応 |
+| llama3.2:7b | 20-25 t/s | 7-9GB | 汎用 |
+| mistral:7b | 20-25 t/s | 7-9GB | 効率的 |
 
 ---
 
-## ディレクトリ構成（完成イメージ）
+## ディレクトリ構成
 
 ```
 local-llm/
-├── Makefile              # プロジェクト共通（ollama-*, 将来は他サービスも追加）
-└── ollama/
-    ├── docker-compose.yml
-    └── README.md
+├── Makefile
+├── README.md
+└── doc/
+    ├── local-llm-analysis.md
+    └── plan/
+        └── ollama-setup-plan.md
 ```
 
 ---
 
-## 技術的考慮事項
+## 実装状況
 
-- **ボリューム永続化**: モデルデータは名前付きボリュームで永続化し、コンテナ削除後も再ダウンロード不要
-- **ポート**: 11434はOllamaのデフォルトポート、他アプリとの競合に注意
-- **メモリ**: 16GB環境では7B-8Bモデルが快適に動作
-
----
-
-## 備考
-
-- 初回モデルダウンロードは4-5GB程度、時間がかかる
-- Dockerが起動していることを事前に確認
+- [x] Makefile 作成
+- [x] README.md 作成
+- [ ] Ollamaインストール (`make install`)
+- [ ] モデルダウンロード (`make pull-all`)
+- [ ] モデル比較実施

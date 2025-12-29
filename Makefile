@@ -1,33 +1,73 @@
-# Local LLM Makefile
+# Local LLM Model Comparison - Makefile
 
 # デフォルトモデル
-MODEL ?= gemma2:7b
+MODEL ?= gemma2
 
 # =============================================================================
-# Ollama
+# セットアップ
 # =============================================================================
 
-.PHONY: ollama-up ollama-down ollama-logs ollama-pull ollama-run ollama-list ollama-api
+.PHONY: install serve
 
-ollama-up:
-	docker compose -f ollama/docker-compose.yml up -d
+install:
+	brew install ollama
 
-ollama-down:
-	docker compose -f ollama/docker-compose.yml down
+serve:
+	ollama serve
 
-ollama-logs:
-	docker compose -f ollama/docker-compose.yml logs -f
+# =============================================================================
+# モデル操作
+# =============================================================================
 
-ollama-pull:
-	docker exec -it ollama ollama pull $(MODEL)
+.PHONY: pull run list rm
 
-ollama-run:
-	docker exec -it ollama ollama run $(MODEL)
+pull:
+	ollama pull $(MODEL)
 
-ollama-list:
-	docker exec -it ollama ollama list
+run:
+	ollama run $(MODEL)
 
-ollama-api:
-	@echo "API endpoint: http://localhost:11434"
-	@echo "Example:"
-	@echo '  curl http://localhost:11434/api/generate -d '\''{"model": "$(MODEL)", "prompt": "Hello"}'\'''
+list:
+	ollama list
+
+rm:
+	ollama rm $(MODEL)
+
+# =============================================================================
+# モデル比較用（複数モデル一括操作）
+# =============================================================================
+
+.PHONY: pull-all compare
+
+# 比較対象モデル（16GBメモリ対応）
+MODELS := gemma2 qwen2.5:7b llama3.2 mistral
+
+pull-all:
+	@for model in $(MODELS); do \
+		echo "=== Pulling $$model ==="; \
+		ollama pull $$model; \
+	done
+
+# =============================================================================
+# ヘルプ
+# =============================================================================
+
+.PHONY: help
+
+help:
+	@echo "Local LLM Model Comparison"
+	@echo ""
+	@echo "セットアップ:"
+	@echo "  make install     - Ollamaをインストール (Homebrew)"
+	@echo "  make serve       - Ollamaサーバーを起動"
+	@echo ""
+	@echo "モデル操作:"
+	@echo "  make pull MODEL=<model>  - モデルをダウンロード"
+	@echo "  make run MODEL=<model>   - モデルを実行（対話モード）"
+	@echo "  make list                - ダウンロード済みモデル一覧"
+	@echo "  make rm MODEL=<model>    - モデルを削除"
+	@echo ""
+	@echo "比較用:"
+	@echo "  make pull-all    - 比較対象モデルを一括ダウンロード"
+	@echo ""
+	@echo "デフォルトモデル: $(MODEL)"
