@@ -1,0 +1,90 @@
+{
+  "version": "1.0",
+  "description": "ローカルLLMベンチマーク用テストプロンプト",
+  "prompts": [
+    {
+      "id": "jp_greeting",
+      "category": "japanese",
+      "name": "日本語挨拶",
+      "prompt": "こんにちは。簡単に自己紹介してください。",
+      "expected_lang": "ja"
+    },
+    {
+      "id": "jp_explanation",
+      "category": "japanese",
+      "name": "日本語説明",
+      "prompt": "量子コンピュータとは何か、小学生にも分かるように説明してください。",
+      "expected_lang": "ja"
+    },
+    {
+      "id": "jp_keigo",
+      "category": "japanese",
+      "name": "敬語変換",
+      "prompt": "以下の文を丁寧な敬語に変換してください：「明日会議あるから資料作っといて」",
+      "expected_lang": "ja"
+    },
+    {
+      "id": "en_greeting",
+      "category": "english",
+      "name": "英語挨拶",
+      "prompt": "Hello! Please introduce yourself briefly.",
+      "expected_lang": "en"
+    },
+    {
+      "id": "translation_ja_en",
+      "category": "translation",
+      "name": "日英翻訳",
+      "prompt": "以下の文を英語に翻訳してください：「今日は天気が良いので、公園を散歩しようと思います。」",
+      "expected_lang": "en"
+    },
+    {
+      "id": "translation_en_ja",
+      "category": "translation",
+      "name": "英日翻訳",
+      "prompt": "Translate this to Japanese: \"Artificial intelligence is transforming how we work and live.\"",
+      "expected_lang": "ja"
+    },
+    {
+      "id": "code_python",
+      "category": "coding",
+      "name": "Python関数",
+      "prompt": "Pythonでフィボナッチ数列のn番目を返す関数を書いてください。",
+      "expected_lang": "code"
+    },
+    {
+      "id": "code_explain",
+      "category": "coding",
+      "name": "コード説明",
+      "prompt": "以下のコードが何をしているか説明してください：\n```python\ndef f(n): return n if n < 2 else f(n-1) + f(n-2)\n```",
+      "expected_lang": "ja"
+    },
+    {
+      "id": "reasoning_math",
+      "category": "reasoning",
+      "name": "数学問題",
+      "prompt": "りんごが5個あります。3個食べたら何個残りますか？計算過程も示してください。",
+      "expected_lang": "ja"
+    },
+    {
+      "id": "reasoning_logic",
+      "category": "reasoning",
+      "name": "論理推論",
+      "prompt": "AはBより背が高い。CはBより背が低い。AとCではどちらが背が高いですか？理由も説明してください。",
+      "expected_lang": "ja"
+    },
+    {
+      "id": "summarize",
+      "category": "summarization",
+      "name": "要約",
+      "prompt": "以下の文章を1文で要約してください：「人工知能（AI）は、機械が人間の知能を模倣する技術です。AIは学習、推論、問題解決などの能力を持ち、自動運転車、音声アシスタント、医療診断など様々な分野で活用されています。」",
+      "expected_lang": "ja"
+    },
+    {
+      "id": "creative",
+      "category": "creative",
+      "name": "創作",
+      "prompt": "「月」をテーマに俳句を一句詠んでください。",
+      "expected_lang": "ja"
+    }
+  ]
+}

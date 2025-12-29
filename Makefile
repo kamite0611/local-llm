@@ -49,6 +49,24 @@ pull-all:
 	done
 
 # =============================================================================
+# ベンチマーク
+# =============================================================================
+
+.PHONY: benchmark benchmark-single compare
+
+benchmark:
+	@chmod +x benchmark/run_benchmark.sh
+	@./benchmark/run_benchmark.sh
+
+benchmark-single:
+	@chmod +x benchmark/run_benchmark.sh
+	@./benchmark/run_benchmark.sh "$(MODEL)"
+
+compare:
+	@chmod +x benchmark/compare_results.sh
+	@./benchmark/compare_results.sh
+
+# =============================================================================
 # ヘルプ
 # =============================================================================
 
@@ -69,5 +87,10 @@ help:
 	@echo ""
 	@echo "比較用:"
 	@echo "  make pull-all    - 比較対象モデルを一括ダウンロード"
+	@echo ""
+	@echo "ベンチマーク:"
+	@echo "  make benchmark           - 全モデルのベンチマーク実行"
+	@echo "  make benchmark-single MODEL=<model> - 単一モデルのベンチマーク"
+	@echo "  make compare             - 結果を比較表示"
 	@echo ""
 	@echo "デフォルトモデル: $(MODEL)"
