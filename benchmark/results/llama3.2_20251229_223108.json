@@ -1,0 +1,156 @@
+{
+  "model": "llama3.2",
+  "timestamp": "20251229_223108",
+  "memory_mb": 6783,
+  "results": [
+    {
+  "prompt_id": "jp_greeting",
+  "category": "japanese",
+  "tokens": 62,
+  "tokens_per_sec": 45.67,
+  "elapsed_sec": 1.6,
+  "output_chars": 260,
+  "output": "こんにちは！私は機械の知識を提供するためのアイドルなコンパニオンです。名前はLlamaで、コミュニケーションを易しくし、質問を受け取ることで情報を提供します。何でも相談して下さい！\n",
+  "prompt_name": "日本語挨拶",
+  "prompt": "こんにちは。簡単に自己紹介してください。\n"
+}
+    ,
+    {
+  "prompt_id": "jp_explanation",
+  "category": "japanese",
+  "tokens": 458,
+  "tokens_per_sec": 43.53,
+  "elapsed_sec": 11.61,
+  "output_chars": 1993,
+  "output": "量子コンピュータとは、人間が知っている最も基本的なコンピューターの一つです。\n\nコンピューターは、情報を処理するために「0」と「1」を使います。これらの数字は、人間が見ることができるように整数です。たとえば、コンピューターが合計を計算します。この場合、コンピューターは合計の数字を少なくとも 1 と大きいものに変換する 0 と 1 の組み合わせで表すことになります。\n\nしかし、量子コンピュータでは、情報を処理するために「0」と「1」を使うのではなく、「0」や「1」の間違った組み合わせでも問題なく機能します。これは、量子コンピューターが「0」と「1」を同時に持つことができるためです。\n\nたとえば、人間は「-1」や「1/2」のような数値を作ることはできません。ただし、量子コンピュータでは、「-1」や「1/2」のような数字も機能します。これらの数字を扱うことで、量子コンピューターがより複雑な計算を行うことができます。\n\nたとえば、人間は 1000 個の数値を加算する必要があります。この場合、人間のコンピューターには 1000 個の「0」と「1」を必要です。ただし、量子コンピュータでは、1000 個の「0」と「1」を同時に持つことができるため、1000 個の数値を加算するのに何百万回かかる時間で計算できません。\n\nこれは、人間が知っている限界を超えた情報処理能力を持つものです。量子コンピュータは、特に複雑な問題を解決するために非常に便利になります。\n\nしかし、量子コンピュータは、人間の知識と技術を上回る複雑さがあります。これは、量子コンピュータが「0」と「1」を同時に持つことができることからもわかります。\n",
+  "prompt_name": "日本語説明",
+  "prompt": "量子コンピュータとは何か、小学生にも分かるように説明してください。\n"
+}
+    ,
+    {
+  "prompt_id": "jp_keigo",
+  "category": "japanese",
+  "tokens": 61,
+  "tokens_per_sec": 46.36,
+  "elapsed_sec": 1.67,
+  "output_chars": 267,
+  "output": "「次の会議があって、材料を作ってください」という意味で、丁寧な敬語に変換すると：\n\n「次の会議があって、材料を作ってください」 or 「次の会議については、必要な資料を準備してください」\n",
+  "prompt_name": "敬語変換",
+  "prompt": "以下の文を丁寧な敬語に変換してください：「明日会議あるから資料作っといて」\n"
+}
+    ,
+    {
+  "prompt_id": "en_greeting",
+  "category": "english",
+  "tokens": 67,
+  "tokens_per_sec": 44.85,
+  "elapsed_sec": 1.81,
+  "output_chars": 314,
+  "output": "Nice to meet you! I'm an artificial intelligence model, which means I'm a computer program designed to simulate human-like conversations and answer questions to the best of my ability. I don't have a personal name, but I'm here to help and provide information on a wide range of topics. How can I assist you today?\n",
+  "prompt_name": "英語挨拶",
+  "prompt": "Hello! Please introduce yourself briefly.\n"
+}
+    ,
+    {
+  "prompt_id": "translation_ja_en",
+  "category": "translation",
+  "tokens": 44,
+  "tokens_per_sec": 46.21,
+  "elapsed_sec": 1.18,
+  "output_chars": 187,
+  "output": "Here is the translation:\n\n\"I think I'll go for a walk in the park today because the weather is nice.\"\n\nor \n\n\"I'm thinking of going for a walk in the park today since the weather is good.\"\n",
+  "prompt_name": "日英翻訳",
+  "prompt": "以下の文を英語に翻訳してください：「今日は天気が良いので、公園を散歩しようと思います。」\n"
+}
+    ,
+    {
+  "prompt_id": "translation_en_ja",
+  "category": "translation",
+  "tokens": 0,
+  "tokens_per_sec": 0,
+  "elapsed_sec": 0.02,
+  "output_chars": 0,
+  "output": "\n",
+  "prompt_name": "英日翻訳",
+  "prompt": "Translate this to Japanese: \"Artificial intelligence is transforming how we work and live.\"\n"
+}
+    ,
+    {
+  "prompt_id": "code_python",
+  "category": "coding",
+  "tokens": 194,
+  "tokens_per_sec": 44.92,
+  "elapsed_sec": 4.59,
+  "output_chars": 722,
+  "output": "def fibonacci(n):\n    \"\"\"\n    n番目のフィボナッチ数を返します。\n    \n    :param n: n番目のフィボナッチ数を取得したいインデックス\n    :type n: int\n    :return: n番目のフィボナッチ数\n    :rtype: int\n    \"\"\"\n\n    # initial values for the first two Fibonacci numbers\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    \n    # initialize a list to store the Fibonacci sequence\n    fib_sequence = [0, 1]\n    \n    # calculate Fibonacci numbers up to the nth number\n    for i in range(2, n + 1):\n        next_fib = fib_sequence[i - 1] + fib_sequence[i - 2]\n        fib_sequence.append(next_fib)\n    \n    # return the nth Fibonacci number\n    return fib_sequence[n]\n",
+  "prompt_name": "Python関数",
+  "prompt": "Pythonでフィボナッチ数列のn番目を返す関数を書いてください。\n"
+}
+    ,
+    {
+  "prompt_id": "code_explain",
+  "category": "coding",
+  "tokens": 0,
+  "tokens_per_sec": 0,
+  "elapsed_sec": 0.02,
+  "output_chars": 0,
+  "output": "\n",
+  "prompt_name": "コード説明",
+  "prompt": "以下のコードが何をしているか説明してください：\n```python\ndef f(n): return n if n < 2 else f(n-1) + f(n-2)\n```\n"
+}
+    ,
+    {
+  "prompt_id": "reasoning_math",
+  "category": "reasoning",
+  "tokens": 102,
+  "tokens_per_sec": 43.86,
+  "elapsed_sec": 2.8,
+  "output_chars": 327,
+  "output": "リンネットは 5 個のリンボンがあります。\n\n1. まず、食べた 3 個を差し引きます。\n```\n5 (リンボンの合計) - 3 (食べたリンボン) = ?\n```\n\n2. を計算してみましょう。\n```\n5 - 3 = 2\n```\n\nしたがって、残っているリンゴは 2 個です。\n\n最終的な答えは2です。\n",
+  "prompt_name": "数学問題",
+  "prompt": "りんごが5個あります。3個食べたら何個残りますか？計算過程も示してください。\n"
+}
+    ,
+    {
+  "prompt_id": "reasoning_logic",
+  "category": "reasoning",
+  "tokens": 259,
+  "tokens_per_sec": 45.13,
+  "elapsed_sec": 6.1,
+  "output_chars": 1021,
+  "output": "この質問では、特に「背が高い」という言葉の意味を考慮する必要があります。\n\nA は B より背が高いということは、A が B より高くて高くなったことになります。しかし、C が B より背が低いということは、C が B より低くて低くなったことになります。つまり、B の背の高さは両方で同じです。\n\nしたがって、A と C の場合、どちらの身長が高いかを決定するために、両方の値を比較する必要があります。\n\nA は B より背が高いと仮定すると、次のように結論付けることができます:\n\nA ≥ B\n\nC は B より背が低いので、次のように結論付けることができます:\n\nB ≥ C\n\nこれで両方の値を比較することができます。 \n\nA ≥ B > C\n\nつまり、A の身長は B から高くなりますが、B の身長は C 以下なので、A が C よりも背が高いことがわかります。\n\nしたがって、答えは A です。\n",
+  "prompt_name": "論理推論",
+  "prompt": "AはBより背が高い。CはBより背が低い。AとCではどちらが背が高いですか？理由も説明してください。\n"
+}
+    ,
+    {
+  "prompt_id": "summarize",
+  "category": "summarization",
+  "tokens": 61,
+  "tokens_per_sec": 45.56,
+  "elapsed_sec": 1.71,
+  "output_chars": 233,
+  "output": "人工知能（AI）は、機械が人間の知能を模倣する技術であり、学習、推論、問題解決などの能力を持ち、自動運転車や音声アシスタントなど様々な分野で活用されています。\n",
+  "prompt_name": "要約",
+  "prompt": "以下の文章を1文で要約してください：「人工知能（AI）は、機械が人間の知能を模倣する技術です。AIは学習、推論、問題解決などの能力を持ち、自動運転車、音声アシスタント、医療診断など様々な分野で活用されています。」\n"
+}
+    ,
+    {
+  "prompt_id": "creative",
+  "category": "creative",
+  "tokens": 15,
+  "tokens_per_sec": 48.44,
+  "elapsed_sec": 0.52,
+  "output_chars": 43,
+  "output": "月の光が舞う\n静けさの中で輝き\n",
+  "prompt_name": "創作",
+  "prompt": "「月」をテーマに俳句を一句詠んでください。\n"
+}
+
+  ],
+  "summary": {
+    "total_tokens": 1323,
+    "total_time_sec": 33.63,
+    "avg_tokens_per_sec": 39.34
+  }
+}
